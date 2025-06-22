@@ -4,7 +4,6 @@ import * as dotenv from "dotenv";
 
 dotenv.config();
 
-// I prefer using individual connection params for better clarity
 const pool = new Pool({
   host: process.env.DB_HOST,
   port: Number(process.env.DB_PORT),

@@ -3,7 +3,7 @@ import { pgTable, serial, text, boolean, timestamp, integer } from "drizzle-orm/
 // User table for authentication
 export const users = pgTable("users", {
   id: serial("id").primaryKey(),
-  authId: text("auth_id").notNull().unique(), // from auth provider
+  authId: text("auth_id").notNull().unique(), 
   createdAt: timestamp("created_at").defaultNow(),
 });
 
