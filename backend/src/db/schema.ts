@@ -1,10 +1,10 @@
-import { pgTable, serial, text, boolean, timestamp, integer } from "drizzle-orm/pg-core";
+import { pgTable, serial, text, boolean, timestamp, integer, varchar } from "drizzle-orm/pg-core";
 
 // User table for authentication
 export const users = pgTable("users", {
   id: serial("id").primaryKey(),
-  authId: text("auth_id").notNull().unique(), 
-  createdAt: timestamp("created_at").defaultNow(),
+  name: varchar("name", { length: 100 }).notNull(),
+  email: varchar("email", { length: 100 }).notNull().unique(),
 });
 
 // Main tasks table

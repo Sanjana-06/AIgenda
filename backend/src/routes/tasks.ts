@@ -2,7 +2,7 @@ import { Router } from "express";
 import { z } from "zod";
 import { generateTasks } from "../utils/gemini";
 import { db } from "../db/db";
-import { tasks } from "../db/schema";
+import { users, tasks } from "../db/schema";
 import { eq } from "drizzle-orm";
 
 const router = Router();
@@ -32,18 +32,37 @@ router.post("/save", async (req, res) => {
 
   try {
     const { title, description, category, userId } = schema.parse(req.body);
+
+    // Manually check if user exists using Drizzle ORM's select
+    const existingUser = await db
+      .select()
+      .from(users)
+      .where(eq(users.id, userId));
+
+    // If user doesn't exist, insert a dummy user
+    if (existingUser.length === 0) {
+      await db.insert(users).values({
+        id: userId,
+        name: `User ${userId}`,
+        email: `user${userId}@example.com`,
+      });
+    }
+
+    // Now insert task
     const newTask = await db.insert(tasks).values({
       title,
       description,
       category,
       userId,
     });
+
     res.status(201).json({ message: "Task saved", newTask });
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: "Saving task failed" });
   }
 });
+
 
 // Get all tasks for a user
 router.get("/:userId", async (req, res) => {
