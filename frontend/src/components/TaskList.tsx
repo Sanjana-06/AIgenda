@@ -11,6 +11,7 @@ type TaskListProps = {
   tasks: Task[];
   onEdit: (id: number) => void;
   onDelete: (id: number) => void;
+  onUpdate: () => void;
 };
 
 export default function TaskList({ tasks, onEdit, onDelete }: TaskListProps) {

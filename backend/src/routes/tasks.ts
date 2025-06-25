@@ -90,4 +90,10 @@ router.delete("/:id", async (req, res) => {
   res.json({ message: "Task deleted" });
 });
 
+router.patch("/:id/toggle", async (req, res) => {
+  const taskId = parseInt(req.params.id);
+  const [task] = await db.select().from(tasks).where(eq(tasks.id, taskId));
+  await db.update(tasks).set({ completed: !task.completed }).where(eq(tasks.id, taskId));
+  res.json({ message: "Task toggled" });
+});
 export default router;

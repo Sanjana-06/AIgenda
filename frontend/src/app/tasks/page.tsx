@@ -49,6 +49,11 @@ const Tasks = () => {
     }
   };
 
+  const totalTasks = savedTasks.length;
+  const completedTasks = savedTasks.filter((task) => task.completed).length;
+  const progress = totalTasks === 0 ? 0 : Math.round((completedTasks / totalTasks) * 100);
+
+
   return (
     <main className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
       {/* Animated background elements */}
@@ -136,6 +141,22 @@ const Tasks = () => {
           </div>
         )}
 
+        {totalTasks > 0 && (
+          <div className="mb-6">
+            <div className="flex justify-between text-sm text-gray-300 mb-1">
+              <span>Progress</span>
+              <span>{progress}% Complete</span>
+            </div>
+            <div className="w-full bg-white/10 rounded-full h-3">
+              <div
+                className="bg-green-500 h-3 rounded-full transition-all duration-500"
+                style={{ width: `${progress}%` }}
+              ></div>
+            </div>
+          </div>
+        )}
+
+
         {/* Saved Tasks */}
         <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
           <h2 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
@@ -145,8 +166,9 @@ const Tasks = () => {
           <TaskList
             tasks={savedTasks}
             onEdit={(id) => alert("Edit feature coming soon")}
-            onDelete={() => alert("Delete feature coming soon")}
-          />
+            onDelete={() => alert("Delete feature coming soon")} onUpdate={function (): void {
+              throw new Error("Function not implemented.");
+            } }          />
         </div>
       </div>
 
