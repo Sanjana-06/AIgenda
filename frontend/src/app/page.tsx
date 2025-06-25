@@ -56,21 +56,28 @@ const Index = () => {
           </div>
         </div>
 
-        {/* CTA Button */}
-        <div className="flex justify-center">
+        {/* CTA Buttons */}
+        <div className="flex justify-center gap-4 flex-wrap mb-10">
+          <a href="/login">
+            <button className="group relative bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-6 py-3 rounded-xl font-medium shadow-lg hover:scale-105 transition-all duration-300">
+              Login
+            </button>
+          </a>
+          <a href="/signup">
+            <button className="group relative bg-gradient-to-r from-green-500 to-emerald-500 text-white px-6 py-3 rounded-xl font-medium shadow-lg hover:scale-105 transition-all duration-300">
+              Signup
+            </button>
+          </a>
           <a href="/tasks">
-            <button className="group relative bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-2xl font-semibold text-lg shadow-2xl transform hover:scale-105 transition-all duration-300 hover:shadow-purple-500/25 flex items-center gap-3">
+            <button className="group relative bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-3 rounded-xl font-medium shadow-lg flex items-center gap-2 hover:scale-105 transition-all duration-300">
               <span>Go to Tasks</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-              
-              {/* Button glow effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl blur opacity-30 group-hover:opacity-50 transition-opacity duration-300 -z-10"></div>
             </button>
           </a>
         </div>
 
         {/* Bottom decorative text */}
-        <div className="mt-16 text-gray-500 text-sm">
+        <div className="mt-4 text-gray-500 text-sm">
           Powered by AI • Built for Productivity • Designed for You
         </div>
       </div>

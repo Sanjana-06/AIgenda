@@ -1,20 +1,21 @@
+// === File: components/TaskList.tsx ===
 import TaskItem from "./TaskItem";
 
-type Task = {
+interface Task {
   id: number;
   title: string;
   description?: string;
   completed: boolean;
-};
+}
 
-type TaskListProps = {
+interface TaskListProps {
   tasks: Task[];
   onEdit: (id: number) => void;
   onDelete: (id: number) => void;
-  onUpdate: () => void;
-};
+  onComplete: (id: number) => void;
+}
 
-export default function TaskList({ tasks, onEdit, onDelete }: TaskListProps) {
+export default function TaskList({ tasks, onEdit, onDelete, onComplete }: TaskListProps) {
   return (
     <div className="space-y-4 mt-6">
       {tasks.length === 0 ? (
@@ -29,6 +30,7 @@ export default function TaskList({ tasks, onEdit, onDelete }: TaskListProps) {
             completed={task.completed}
             onEdit={onEdit}
             onDelete={onDelete}
+            onComplete={onComplete}
           />
         ))
       )}
