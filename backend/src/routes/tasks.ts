@@ -2,7 +2,7 @@ import { Router } from "express";
 import { z } from "zod";
 import {generateTasks} from '../utils/gemini.js';
 import {db} from '../db/db.js';
-import { users, tasks } from "../db/schema";
+import {users, tasks} from '../db/schema.js';
 import { eq } from "drizzle-orm";
 
 const router = Router();
