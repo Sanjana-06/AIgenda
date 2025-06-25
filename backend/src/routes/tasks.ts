@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { z } from "zod";
 import {generateTasks} from '../utils/gemini.js';
-import { db } from "../db/db";
+import {db} from '../db/db.js';
 import { users, tasks } from "../db/schema";
 import { eq } from "drizzle-orm";
 
