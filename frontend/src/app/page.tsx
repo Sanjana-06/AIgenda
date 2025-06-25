@@ -3,16 +3,12 @@ import { ArrowRight, CheckCircle, Brain, Zap } from "lucide-react";
 const Index = () => {
   return (
     <main className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex flex-col justify-center items-center text-center px-4 relative overflow-hidden">
-      {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-2000"></div>
         <div className="absolute top-40 left-1/2 w-80 h-80 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-4000"></div>
       </div>
-
-      {/* Main content */}
       <div className="relative z-10 max-w-4xl mx-auto">
-        {/* Logo/Icon */}
         <div className="mb-8 flex justify-center">
           <div className="relative">
             <div className="w-20 h-20 bg-gradient-to-r from-purple-400 to-pink-400 rounded-2xl flex items-center justify-center shadow-2xl transform rotate-3 hover:rotate-6 transition-transform duration-300">
@@ -23,21 +19,15 @@ const Index = () => {
             </div>
           </div>
         </div>
-
-        {/* Main heading */}
         <h1 className="text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-purple-200 to-white bg-clip-text text-transparent leading-tight">
           Welcome to{" "}
           <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
             AIgenda
           </span>
         </h1>
-
-        {/* Subtitle */}
         <p className="text-xl md:text-2xl mb-12 text-gray-300 max-w-2xl mx-auto leading-relaxed">
           Your AI-powered personal task manager.
         </p>
-
-        {/* Feature highlights */}
         <div className="grid md:grid-cols-3 gap-6 mb-12 max-w-3xl mx-auto">
           <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300 hover:scale-105">
             <CheckCircle className="w-8 h-8 text-green-400 mx-auto mb-3" />
@@ -55,8 +45,6 @@ const Index = () => {
             <p className="text-gray-400 text-sm">Quick task creation and instant AI assistance</p>
           </div>
         </div>
-
-        {/* CTA Buttons */}
         <div className="flex justify-center gap-4 flex-wrap mb-10">
           <a href="/login">
             <button className="group relative bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-6 py-3 rounded-xl font-medium shadow-lg hover:scale-105 transition-all duration-300">
@@ -75,14 +63,10 @@ const Index = () => {
             </button>
           </a>
         </div>
-
-        {/* Bottom decorative text */}
         <div className="mt-4 text-gray-500 text-sm">
           Powered by AI • Built for Productivity • Designed for You
         </div>
       </div>
-
-      {/* Floating particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-white rounded-full opacity-20 animate-bounce animation-delay-1000"></div>
         <div className="absolute top-1/3 right-1/4 w-1 h-1 bg-purple-400 rounded-full opacity-30 animate-bounce animation-delay-2000"></div>

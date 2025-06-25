@@ -1,4 +1,3 @@
-// === File: components/TaskItem.tsx ===
 import { Pencil, Trash2, CheckCircle } from "lucide-react";
 
 interface TaskProps {

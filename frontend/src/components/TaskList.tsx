@@ -1,4 +1,3 @@
-// === File: components/TaskList.tsx ===
 import TaskItem from "./TaskItem";
 
 interface Task {

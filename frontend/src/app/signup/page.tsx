@@ -1,10 +1,11 @@
-// src/app/signup/page.tsx
 "use client";
 
 import { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useRouter } from "next/navigation";
 import { auth } from "@/lib/firebase";
+import { FirebaseError } from "firebase/app"; 
+import Link from "next/link"; 
 
 export default function SignupPage() {
   const [email, setEmail] = useState("");
@@ -16,7 +17,6 @@ export default function SignupPage() {
     e.preventDefault();
     setError("");
 
-    // Client-side validation
     if (!email || !password) {
       setError("Email and password are required.");
       return;
@@ -30,8 +30,9 @@ export default function SignupPage() {
     try {
       await createUserWithEmailAndPassword(auth, email, password);
       router.push("/tasks");
-    } catch (err: any) {
-      switch (err.code) {
+    } catch (err) {
+      const error = err as FirebaseError;
+      switch (error.code) {
         case "auth/email-already-in-use":
           setError("Email is already in use. Try logging in instead.");
           break;
@@ -84,9 +85,9 @@ export default function SignupPage() {
 
         <p className="text-center text-sm mt-2">
           Already have an account?{" "}
-          <a href="/login" className="text-purple-400 hover:underline">
+          <Link href="/login" className="text-purple-400 hover:underline">
             Login
-          </a>
+          </Link>
         </p>
       </form>
     </main>

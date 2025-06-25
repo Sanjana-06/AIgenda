@@ -1,4 +1,3 @@
-// === File: app/tasks/page.tsx ===
 "use client";
 import { useEffect, useState } from "react";
 import { generateTasks, saveTask, getTasks, updateTask, deleteTask } from "@/lib/api";
@@ -7,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import TaskList from "@/components/TaskList";
 import { Brain, Zap, Plus, ArrowLeft } from "lucide-react";
 import AuthGuard from "@/components/authGuard";
+import Link from "next/link";
 
 interface Task {
   id: number;
@@ -81,13 +81,12 @@ const Tasks = () => {
   <AuthGuard>
     <main className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
       <div className="relative z-10 max-w-4xl mx-auto px-4 py-8">
-        {/* Header */}
         <div className="flex items-center mb-8">
-          <a href="/" className="mr-4">
+          <Link href="/" className="mr-4">
             <Button variant="ghost" size="icon" className="text-white hover:bg-white/10">
               <ArrowLeft className="w-5 h-5" />
             </Button>
-          </a>
+          </Link>
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-gradient-to-r from-purple-400 to-pink-400 rounded-xl flex items-center justify-center">
               <Brain className="w-5 h-5 text-white" />
@@ -95,14 +94,11 @@ const Tasks = () => {
             <h1 className="text-3xl font-bold text-white">AI Task Generator</h1>
           </div>
         </div>
-
-        {/* Task Generation Section */}
         <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 mb-8">
           <div className="flex items-center gap-2 mb-4">
             <Zap className="w-5 h-5 text-yellow-400" />
             <h2 className="text-xl font-semibold text-white">Generate Tasks</h2>
           </div>
-
           <div className="flex gap-3">
             <Input
               placeholder="Enter a topic (e.g. Learn TypeScript)"
@@ -129,8 +125,6 @@ const Tasks = () => {
             </Button>
           </div>
         </div>
-
-        {/* Generated Tasks */}
         {generatedTasks.length > 0 && (
           <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 mb-8">
             <h2 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
@@ -157,7 +151,6 @@ const Tasks = () => {
             </div>
           </div>
         )}
-
         {totalTasks > 0 && (
           <div className="mb-6">
             <div className="flex justify-between text-sm text-gray-300 mb-1">
@@ -172,8 +165,6 @@ const Tasks = () => {
             </div>
           </div>
         )}
-
-        {/* Saved Tasks */}
         <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
           <h2 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
             <div className="w-5 h-5 bg-gradient-to-r from-green-400 to-blue-400 rounded"></div>
